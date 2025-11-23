@@ -370,6 +370,13 @@ Instead, it delegates to the Service layer.
 Analogy: Controller = the receptionist of a company.
 
 
+#### Good Practice 
+###### With Lombok to reduce constructor boiler plate
+![alt text](image-12.png)
+
+
+__________________________________________________
+
 
 ## 2️⃣ Service Layer
 
@@ -388,6 +395,11 @@ Combine results
 Think of it as “the brains” of the app.
 
 Analogy: Service = the actual worker who knows how to get things done.
+
+![alt text](image-13.png)
+
+
+_______________________________________
 
 
 
@@ -415,6 +427,29 @@ No logic, only data access.
 
 Analogy: DAO = the storage manager (fetching/saving data).
 
+
+![alt text](image-14.png)
+
+
+### What is JpaRepository?
+
+JpaRepository is an interface provided by Spring Data JPA.
+
+### What does JpaRepository provide?
+
+![alt text](image-15.png)
+
+
+![alt text](image-16.png)
+
+
+![alt text](image-17.png)
+
+
+![alt text](image-18.png)
+
+_______________________________
+
 ## 4️⃣ Entity Layer
 
 ✨ Represents database tables as Java classes.
@@ -430,6 +465,7 @@ class User {
 
 Each Entity = one table.
 
+![alt text](image-19.png)
 
 ## 5️⃣ ResponseModel / DTO Layer
 
