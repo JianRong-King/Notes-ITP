@@ -331,17 +331,124 @@ A RESTful API is organized around resources, which are essentially the nouns (ob
 ### HTTP Status Code Recap
 
 <br>
-
-## IFast Assessment Prep
 ______________________________
+
+
+# IFast Assessment Prepare
 
 ## SpringBoot layer Principle / Rule
 - DAO
 - ResponseModel
+- Service
 - Controller
 - Entity 
 
 
+
+## Flow:
+Controller → Service → DAO/Repository → Entity → DB
+and on the way back, ResponseModel goes outward to the client.
+
+<br>
+
+## 1️⃣ Controller Layer
+
+✨ Handles incoming HTTP requests.
+
+It receives:
+
+- GET /user
+
+- POST /login
+
+- etc.
+
+It does not contain business logic.
+
+Instead, it delegates to the Service layer.
+
+Analogy: Controller = the receptionist of a company.
+
+
+
+## 2️⃣ Service Layer
+
+✨ Contains business logic.
+
+Examples:
+
+- Validate user input
+
+- Apply business rules
+
+- Call multiple DAOs
+
+Combine results
+
+Think of it as “the brains” of the app.
+
+Analogy: Service = the actual worker who knows how to get things done.
+
+
+
+## 3️⃣ DAO (or Repository) Layer
+
+✨ Talks to the database.
+
+Spring uses:
+
+- JpaRepository
+
+- CrudRepository
+
+This layer does only:
+
+- SELECT
+
+- INSERT
+
+- UPDATE
+
+- DELETE
+
+No logic, only data access.
+
+Analogy: DAO = the storage manager (fetching/saving data).
+
+## 4️⃣ Entity Layer
+
+✨ Represents database tables as Java classes.
+
+Example:
+
+@Entity
+class User {
+   @Id
+   private Long id;
+   private String name;
+}
+
+Each Entity = one table.
+
+
+## 5️⃣ ResponseModel / DTO Layer
+
+✨ Defines what you send back to the client.
+
+You do not want to return the Entity directly because:
+
+entity contains internal fields
+
+exposes database structure
+
+DTO is safer & cleaner
+
+class UserResponse {
+   private String name;
+   private int age;
+}
+
+Analogy: DTO = the final packaged item the customer receives.
 
 <br>
 
